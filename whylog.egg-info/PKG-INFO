@@ -1,0 +1,6 @@
+Metadata-Version: 2.4
+Name: whylog
+Version: 0.1.0
+Summary: Ferramenta de linha de comando que guarda decisões técnicas e responde perguntas sobre elas
+Requires-Python: >=3.10
+Requires-Dist: requests

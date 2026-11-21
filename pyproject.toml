@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "whylog"
+version = "0.1.0"
+description = "Ferramenta de linha de comando que guarda decisões técnicas e responde perguntas sobre elas"
+requires-python = ">=3.10"
+dependencies = ["requests"]
+
+[project.scripts]
+whylog = "whylog.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["whylog*"]
