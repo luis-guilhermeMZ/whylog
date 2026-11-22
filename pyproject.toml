@@ -4,13 +4,44 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "whylog"
-version = "0.1.0"
+version = "0.2.0"
 description = "Ferramenta de linha de comando que guarda decisões técnicas e responde perguntas sobre elas"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "luis-guilhermeMZ" }]
+keywords = ["decisões", "cli", "markdown", "llm", "documentação"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Documentation",
+    "Topic :: Utilities",
+]
 requires-python = ">=3.10"
 dependencies = ["requests"]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff"]
+
+[project.urls]
+Homepage = "https://github.com/luis-guilhermeMZ/whylog"
+Repository = "https://github.com/luis-guilhermeMZ/whylog"
+Issues = "https://github.com/luis-guilhermeMZ/whylog/issues"
 
 [project.scripts]
 whylog = "whylog.cli:main"
 
 [tool.setuptools.packages.find]
 include = ["whylog*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
