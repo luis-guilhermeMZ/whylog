@@ -37,14 +37,15 @@ def test_list_empty(tmp_path: Path, monkeypatch, capsys) -> None:
 def test_show(tmp_path: Path, monkeypatch, capsys) -> None:
     monkeypatch.chdir(tmp_path)
     cli.main(["add", "--titulo", "Mostrar", "--decisao", "A", "--motivo", "B"])
-    assert cli.main(["show", "decisions/2026-11-22-mostrar.md"]) == 0
+    filename = next(Path("decisions").glob("*.md")).name
+    assert cli.main(["show", filename]) == 0
     assert "## Decisão" in capsys.readouterr().out
 
 
 def test_supersede_success_and_already_superseded(tmp_path: Path, monkeypatch, capsys) -> None:
     monkeypatch.chdir(tmp_path)
     cli.main(["add", "--titulo", "Antiga", "--decisao", "A", "--motivo", "B"])
-    path = Path("decisions/2026-11-22-antiga.md")
+    path = next(Path("decisions").glob("*.md"))
     original_body = path.read_text(encoding="utf-8").split("---\n", 2)[-1]
     assert cli.main(["supersede", path.name, "--por", "nova.md"]) == 0
     content = path.read_text(encoding="utf-8")
