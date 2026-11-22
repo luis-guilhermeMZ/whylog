@@ -104,10 +104,10 @@ def _cmd_ask(args) -> int:
         answer = ask(args.question, context)
     except RuntimeError as e:
         print(f"Não foi possível consultar o modelo: {e}")
-        return 0
+        return 1
     except Exception as e:
         print(f"Erro ao consultar o modelo: {e}")
-        return 0
+        return 1
     print(answer)
     return 0
 

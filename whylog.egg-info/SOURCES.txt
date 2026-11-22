@@ -2,6 +2,8 @@ README.md
 pyproject.toml
 whylog/__init__.py
 whylog/cli.py
+whylog/decision.py
+whylog/llm.py
 whylog.egg-info/PKG-INFO
 whylog.egg-info/SOURCES.txt
 whylog.egg-info/dependency_links.txt
